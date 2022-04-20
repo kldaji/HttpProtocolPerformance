@@ -34,10 +34,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.pb.isVisible = false
 
-        val gson = GsonBuilder().setLenient().create()
         val retrofit1 = Retrofit.Builder()
             .baseUrl("https://picsum.photos/")
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient.Builder().protocols(listOf(Protocol.HTTP_1_1)).build())
             .build()
         val retrofit2 = Retrofit.Builder()
