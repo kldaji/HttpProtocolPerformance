@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.gson.GsonBuilder
 import com.kldaji.okhttp3retrofit.databinding.ActivityMainBinding
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.GlobalScope
@@ -19,7 +18,6 @@ import okhttp3.OkHttpClient
 import okhttp3.Protocol
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -77,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             val deferreds = mutableListOf<Deferred<Image>>()
             for (i in 1..100) {
                 deferreds.add(async {
-                    val responseBody = sampleService.getUser()
+                    val responseBody = sampleService.getImage()
                     val bitmap = BitmapFactory.decodeStream(responseBody.byteStream())
                     val image = Image(i, bitmap)
                     runOnUiThread {

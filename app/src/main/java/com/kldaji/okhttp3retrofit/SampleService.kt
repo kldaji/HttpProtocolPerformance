@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface SampleService {
     @GET("100/150")
-    suspend fun getUser(): ResponseBody
+    suspend fun getImage(): ResponseBody
 }
